@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ✅ FIXED DROP ANIMATION */
+    .drop{
+      opacity:0;
+      transform: translateY(-120px);
+      transition: all 0.8s ease;
+    }
+
+    .show{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    body{
+      background-color: black;
+    }
+
+    .sureimage{ 
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .imager{
+      width: 325px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin:20px;
+      box-shadow: 0 0 20px white;
+    }
+
+    .imager img{
+      width: 100%;
+      height: auto;
+    }
+
+    .imager2{
+      padding: 16px;
+    }
+
+    .imager2 h3{
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    button{
+      display:block;
+      margin:50px auto;
+      padding:20px 40px;
+      font-size:25px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:#333;
+      box-shadow: 0 0 20px white;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px white, 0 0 60px orange;
+      cursor:pointer;
+    }
+    .button3{
+     display:block;
+      margin:50px auto;
+      padding:20px 40px;
+      font-size:25px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:#333;
+      box-shadow: 0 0 20px white;
+      transition:0.3s;
+      
+    }
+    .button3 a{
+      text-decoration:none ;
+      color:black;
+    }
+    .button3:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px white, 0 0 60px orange;
+      cursor:pointer;
+    }
+.button4{
+     display:block;
+      margin:50px auto;
+      padding:20px 40px;
+      font-size:25px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:#333;
+      box-shadow: 0 0 20px white;
+      transition:0.3s;
+      
+    }
+    .button4 a{
+      text-decoration:none ;
+      color:black;
+    }
+    .button4:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px white, 0 0 60px orange;
+      cursor:pointer;
+    }
+    .op{
+      color: white;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size:30px;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align: center;
+    
+      color: white;
+      padding: 15px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+.imager2 p{
+  color: #666;
+  font-size:15px;
+  line-height: 1.3;
+}
+.imager2 h3{
+  text-align: center;
+}
+
+  </style>
+</head>
+
+<body>
+
+<p class="op drop">🎊🎊🎉Have a Nice Birthday🎉🎉🎊</p>
+
+<div class="sureimage">   
+
+  <div class="imager drop">
+    <img src="img1.jpg">
+    <div class="imager2">
+      <h3>፩</h3>
+      <p>Happy</p>
+    </div>
+  </div>
+
+  <div class="imager drop">
+    <img src="img2.jpg">
+    <div class="imager2">
+      <h3>፪</h3>
+      <p>Happy</p>
+    </div>
+  </div>
+
+  <div class="imager drop">
+    <img src="Imn.jpg">
+    <div class="imager2">
+      <h3>፫</h3>
+      <p>Happy</p>
+    </div>
+  </div>
+  <div class="imager drop">
+    <img src="img3.jpg">
+    <div class="imager2">
+      <h3>፬</h3>
+      <p>Happy Birthday</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Play/Pause Button -->
+<button id="musicBtn" onclick="toggleMusic()" class="drop">▶ Play Music</button>
+
+<audio id="bg-music" loop>
+  <source src="Abrsh66.mp3" type="audio/mp3">
+</audio>
+<Button class="button3 drop"> <a href="Gtgg.html">Next</a> </Button>
+<Button class="button4 drop"> <a href="DAbrsh.html">Back</a> </Button>
+<!-- Footer Section -->
+<footer class="drop">
+  &copy; from 2026 seid (أفضل صديق) zayd (ابن نسرو) - All Rights Reserved
+</footer>
+
+
+<script>
+let musicPlaying = false; // Track if music is playing
+
+// Toggle Play/Pause functionality
+function toggleMusic(){
+  const music = document.getElementById("bg-music");
+  const musicBtn = document.getElementById("musicBtn");
+
+  if (musicPlaying) {
+    music.pause();  // Pause the music
+    musicBtn.textContent = '▶ Play Music';  // Change button text
+  } else {
+    music.play();   // Play the music
+    musicBtn.textContent = '⏸ Pause Music';  // Change button text
+  }
+  musicPlaying = !musicPlaying;  // Toggle the state
+}
+
+// Drop-down animation for elements
+window.onload = () => {
+  const items = document.querySelectorAll('.drop');
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('show');
+    }, index * 400);
+  });
+
+  // 🎵 MUSIC AUTOPLAY FIX
+  const music = document.getElementById("bg-music");
+  music.volume = 0.3;
+
+  music.play().catch(() => {
+    document.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
+  });
+};
+</script>
+
+</body>
+</html>

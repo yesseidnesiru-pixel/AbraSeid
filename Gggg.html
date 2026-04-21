@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favorite Music</title>
+
+<style>
+body{
+  background:black;
+  font-family: Arial;
+  text-align:center;
+  color:white;
+}
+
+/* 🔽 DROP ANIMATION */
+.drop{
+  opacity:0;
+  transform: translateY(-100px);
+  transition:0.8s;
+}
+
+.show{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* 🎵 MUSIC CARDS */
+.music-box1,
+.music-box2,
+.music-box3,
+.music-box4{
+  background-image: url(yr.jpg);
+  background-size: cover;
+  margin:20px auto;
+  padding:20px;
+  width:300px;
+  border-radius:15px;
+  box-shadow:0 0 20px white;
+}
+
+/* SPECIAL STYLE FOR SONG 4 */
+.music-box4{
+  box-shadow:0 0 30px orange;
+}
+
+/* BUTTON */
+button{
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  color:#333;
+  cursor:pointer;
+  font-size:16px;
+}
+
+button:hover{
+  box-shadow:0 0 20px orange;
+}
+
+/* FOOTER */
+footer{
+  margin-top:30px;
+  padding:10px;
+  background:#222;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="drop">I think this is your Favorite Music</h1>
+
+<!-- 🎶 SONG 1 -->
+<div class="music-box1 drop">
+  <h3>Song 1</h3>
+  <button onclick="toggleMusic('m1', this)">▶ Play</button>
+  <audio id="m1">
+    <source src="Dd.mp3" type="audio/mp3">
+  </audio>
+</div>
+
+<!-- 🎶 SONG 2 -->
+<div class="music-box2 drop">
+  <h3>Song 2</h3>
+  <button onclick="toggleMusic('m2', this)">▶ Play</button>
+  <audio id="m2">
+    <source src="Db2.mp3" type="audio/mp3">
+  </audio>
+</div>
+
+<!-- 🎶 SONG 3 -->
+<div class="music-box3 drop">
+  <h3>Song 3</h3>
+  <button onclick="toggleMusic('m3', this)">▶ Play</button>
+  <audio id="m3">
+    <source src="Dd3.mp3" type="audio/mp3">
+  </audio>
+</div>
+
+<!-- 🎶 SONG 4 (NEW) -->
+<div class="music-box4 drop">
+  <h3>Song 4</h3>
+  <button onclick="toggleMusic('m4', this)">▶ Play</button>
+  <audio id="m4">
+    <source src="Tt.mp3" type="audio/mp3">
+  </audio>
+</div>
+
+<h4 class="drop">This is Special One, I think your Favorite</h4>
+
+<h3 class="music-box4 drop">🎊🎊 HAPPY BIRTHDAY 🎊🎊 Enjoy</h3>
+
+<!-- 🔙 BACK BUTTON -->
+<button class="drop">
+  <a href="index.html" style="text-decoration:none; color:#333;">Back to home </a>
+</button>
+
+<footer class="drop">
+  &copy; from 2026 seid (أفضل صديق) zayd (ابن نسرو)
+</footer>
+
+<script>
+function toggleMusic(id, btn){
+  const music = document.getElementById(id);
+
+  // stop all other music
+  document.querySelectorAll("audio").forEach(a => {
+    if(a !== music){
+      a.pause();
+      a.currentTime = 0;
+    }
+  });
+
+  // toggle play/pause
+  if(music.paused){
+    music.play();
+    btn.textContent = "⏸ Pause";
+  } else {
+    music.pause();
+    btn.textContent = "▶ Play";
+  }
+}
+
+/* DROP ANIMATION */
+window.onload = () => {
+  const items = document.querySelectorAll('.drop');
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('show');
+    }, index * 300);
+  });
+};
+</script>
+
+</body>
+</html>
